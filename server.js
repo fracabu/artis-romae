@@ -15,8 +15,11 @@ process.on('unhandledRejection', (reason, promise) => {
 
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://artis-romae.vercel.app', 'https://artis-romae-git-main-utentes-projects.vercel.app', 'https://artis-romae-utentes-projects.vercel.app']
-    : ['http://localhost:5175', 'http://localhost:3000']
+    ? true  // Permetti tutti gli origin temporaneamente per debug
+    : ['http://localhost:5175', 'http://localhost:3000'],
+  credentials: false,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
@@ -509,6 +512,8 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 app.get('/api/exhibitions', (req, res) => {
   try {
     console.log('GET /api/exhibitions - Request received');
+    console.log('Headers:', req.headers);
+    console.log('User-Agent:', req.headers['user-agent']);
     const lang = req.query.lang || 'en';
     const type = req.query.type; // 'temporary' o 'permanent' o undefined per tutti
     

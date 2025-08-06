@@ -38,11 +38,26 @@ const ExhibitionList: React.FC<ExhibitionListProps> = ({ onExhibitionSelect }) =
     try {
       const filterParam = filter === 'all' ? '' : `?type=${filter}`;
       const langParam = filter === 'all' ? `?lang=${currentLanguage}` : `&lang=${currentLanguage}`;
-      const response = await fetch(`${config.apiUrl}/api/exhibitions${filterParam}${langParam}`);
+      const url = `${config.apiUrl}/api/exhibitions${filterParam}${langParam}`;
+      
+      console.log('Fetching from:', url);
+      console.log('Environment:', import.meta.env.PROD ? 'PRODUCTION' : 'DEVELOPMENT');
+      
+      const response = await fetch(url);
+      
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
       const data = await response.json();
+      console.log('Data received:', data.length, 'exhibitions');
       setExhibitions(data);
     } catch (error) {
       console.error('Error loading exhibitions:', error);
+      console.error('Error details:', error.message);
     } finally {
       setLoading(false);
     }
