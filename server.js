@@ -15,7 +15,7 @@ process.on('unhandledRejection', (reason, promise) => {
 
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://artis-romae.vercel.app', 'https://your-vercel-domain.vercel.app']
+    ? ['https://artis-romae.vercel.app', 'https://artis-romae-git-main-utentes-projects.vercel.app', 'https://artis-romae-utentes-projects.vercel.app']
     : ['http://localhost:5175', 'http://localhost:3000']
 }));
 app.use(express.json());
