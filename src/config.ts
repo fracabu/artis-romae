@@ -1,7 +1,7 @@
 // API Configuration
 const config = {
   apiUrl: import.meta.env.PROD 
-    ? 'https://artis-romae-api.onrender.com'  // Renderà questo URL dopo il deploy
+    ? 'https://artis-romae.onrender.com'  // URL corretto di Render
     : 'http://localhost:5011'
 };
 
