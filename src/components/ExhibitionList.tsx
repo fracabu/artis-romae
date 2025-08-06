@@ -27,6 +27,7 @@ interface ExhibitionListProps {
 const ExhibitionList: React.FC<ExhibitionListProps> = ({ onExhibitionSelect }) => {
   const [exhibitions, setExhibitions] = useState<Exhibition[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<'all' | 'temporary' | 'permanent'>('all');
   const { t, currentLanguage } = useLanguage();
 
@@ -36,6 +37,9 @@ const ExhibitionList: React.FC<ExhibitionListProps> = ({ onExhibitionSelect }) =
 
   const fetchExhibitions = async () => {
     try {
+      setError(null);
+      setLoading(true);
+      
       const filterParam = filter === 'all' ? '' : `?type=${filter}`;
       const langParam = filter === 'all' ? `?lang=${currentLanguage}` : `&lang=${currentLanguage}`;
       const url = `${config.apiUrl}/api/exhibitions${filterParam}${langParam}`;
@@ -58,6 +62,7 @@ const ExhibitionList: React.FC<ExhibitionListProps> = ({ onExhibitionSelect }) =
     } catch (error) {
       console.error('Error loading exhibitions:', error);
       console.error('Error details:', error.message);
+      setError(error.message || 'Failed to load exhibitions');
     } finally {
       setLoading(false);
     }
@@ -69,6 +74,28 @@ const ExhibitionList: React.FC<ExhibitionListProps> = ({ onExhibitionSelect }) =
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-2 border-slate-300 border-t-slate-800"></div>
           <p className="mt-4 text-gray-600">{t.loading}</p>
+          <div className="mt-4 text-xs text-gray-400">
+            <p>Environment: {import.meta.env.PROD ? 'PRODUCTION' : 'DEVELOPMENT'}</p>
+            <p>API URL: {config.apiUrl}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center py-32">
+        <div className="text-center">
+          <p className="text-red-600 mb-4">❌ Error loading exhibitions</p>
+          <p className="text-sm text-gray-600 mb-4">{error}</p>
+          <p className="text-xs text-gray-400 mb-4">API URL: {config.apiUrl}</p>
+          <button 
+            onClick={fetchExhibitions}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Retry
+          </button>
         </div>
       </div>
     );
