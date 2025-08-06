@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, MapPin, ExternalLink, Ticket, Calendar } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import config from '../config';
 
 interface Exhibition {
   id: number;
@@ -37,7 +38,7 @@ const ExhibitionList: React.FC<ExhibitionListProps> = ({ onExhibitionSelect }) =
     try {
       const filterParam = filter === 'all' ? '' : `?type=${filter}`;
       const langParam = filter === 'all' ? `?lang=${currentLanguage}` : `&lang=${currentLanguage}`;
-      const response = await fetch(`/api/exhibitions${filterParam}${langParam}`);
+      const response = await fetch(`${config.apiUrl}/api/exhibitions${filterParam}${langParam}`);
       const data = await response.json();
       setExhibitions(data);
     } catch (error) {

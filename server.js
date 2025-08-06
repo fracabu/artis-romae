@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
-const PORT = 5011;
+const PORT = process.env.PORT || 5011;
 
 // Global error handlers
 process.on('uncaughtException', (error) => {
@@ -13,7 +13,11 @@ process.on('unhandledRejection', (reason, promise) => {
   console.error('Unhandled Rejection at:', promise, 'reason:', reason);
 });
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://artis-romae.vercel.app', 'https://your-vercel-domain.vercel.app']
+    : ['http://localhost:5175', 'http://localhost:3000']
+}));
 app.use(express.json());
 
 // Global error handling middleware

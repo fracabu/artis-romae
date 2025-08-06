@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
 import { ArrowLeft, MapPin, Home, ExternalLink, Euro, Calendar, Ticket } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import config from '../config';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -64,7 +65,7 @@ const ExhibitionDetail: React.FC<ExhibitionDetailProps> = ({ exhibitionId, onBac
 
   const fetchExhibitionData = async () => {
     try {
-      const response = await fetch(`/api/exhibition/${exhibitionId}?lang=${currentLanguage}`);
+      const response = await fetch(`${config.apiUrl}/api/exhibition/${exhibitionId}?lang=${currentLanguage}`);
       const data = await response.json();
       setExhibitionData(data);
     } catch (error) {

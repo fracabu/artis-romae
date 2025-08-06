@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "dev:full": "concurrently \"node server.js\" \"npm run dev\""
+    "dev:full": "concurrently \"node server.js\" \"npm run dev\"",
+    "start": "node server.js",
+    "server": "node server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
