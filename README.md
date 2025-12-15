@@ -1,65 +1,103 @@
-# Artis Roma: Curated Art Experiences
+<h1 align="center">Artis Romae</h1>
+<h3 align="center">Curated Art Experiences in Rome</h3>
 
-Artis Roma is a comprehensive web application designed to offer exquisite curated art experiences and premium cultural tours throughout Rome, Italy. It serves as a platform for discovering the city's artistic treasures, providing detailed information about iconic locations such as the Vatican Museums, the Colosseum, and the Borghese Gallery, all with a focus on luxury accommodations and an elevated travel experience.
+<p align="center">
+  <em>Premium cultural tours and luxury accommodations in the Eternal City</em>
+</p>
 
-## Key Features
+<p align="center">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Leaflet-199900?style=flat-square&logo=leaflet&logoColor=white" alt="Leaflet" />
+</p>
 
-*   **Curated Art Experiences**: Specializes in offering unique, high-quality, and expertly guided art tours across Rome's most significant cultural sites.
-*   **Interactive Location Mapping**: Integrates interactive maps (powered by Leaflet) to visually present tour locations, points of interest, and itinerary details.
-*   **Premium Travel Focus**: Tailored for travelers seeking luxury accommodations and an unparalleled cultural journey in the Eternal City.
-*   **SEO Optimized**: Built with comprehensive SEO metadata, structured data, and multilingual support (`hreflang`) to maximize discoverability and reach a global audience.
-*   **Dual Client-Server Architecture**: Comprises a modern React frontend interacting seamlessly with a robust Node.js and Express.js backend.
+<p align="center">
+  :gb: <a href="#english">English</a> | :it: <a href="#italiano">Italiano</a>
+</p>
 
-## Tech Stack
+---
 
-The Artis Roma project leverages a modern web development stack for both its frontend and backend components:
+<a name="english"></a>
+## :gb: English
 
-*   **Frontend**:
-    *   **React**: A declarative, component-based JavaScript library for building user interfaces.
-    *   **TypeScript**: A superset of JavaScript that adds static typing, enhancing code quality and maintainability.
-    *   **Vite**: A fast and opinionated build tool for modern web projects.
-    *   **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
-    *   **Leaflet & React-Leaflet**: Libraries for creating interactive, mobile-friendly maps.
-*   **Backend**:
-    *   **Node.js**: A JavaScript runtime for server-side execution.
-    *   **Express.js**: A fast, unopinionated, minimalist web framework for Node.js.
-    *   **CORS**: Middleware for enabling Cross-Origin Resource Sharing.
-*   **Development Tools**:
-    *   **npm**: Package manager for JavaScript.
-    *   **ESLint**: A pluggable linting utility for JavaScript and JSX.
-    *   **Concurrentlly**: Utility to run multiple commands concurrently.
+### Overview
 
-## Getting Started
+A comprehensive web application offering curated art experiences and premium cultural tours throughout Rome. Discover Vatican Museums, Colosseum, Borghese Gallery with luxury accommodations.
 
-To set up and run the Artis Roma project locally, follow these instructions:
+### Features
 
-1.  **Clone the repository**:
+- **Curated Art Tours** - Expert-guided experiences across Rome's cultural sites
+- **Interactive Maps** - Leaflet-powered location mapping
+- **Premium Travel Focus** - Luxury accommodations and elevated experiences
+- **SEO Optimized** - Multilingual support with hreflang
+- **Full-Stack** - React frontend + Node.js/Express backend
 
-    ```bash
-    git clone https://github.com/your-username/artis-romae.git
-    cd artis-romae
-    ```
-    *(Note: Replace `your-username` with the actual GitHub username if available, or remove the placeholder if the repository is not public/known.)*
+### Tech Stack
 
-2.  **Install Dependencies**:
-    Navigate to the project root directory and install all necessary npm packages for both the frontend and backend:
+| Layer | Technology |
+|-------|------------|
+| Frontend | React, TypeScript, Vite, Tailwind CSS |
+| Maps | Leaflet, React-Leaflet |
+| Backend | Node.js, Express.js |
 
-    ```bash
-    npm install
-    ```
+### Quick Start
 
-3.  **Run in Development Mode**:
-    This command will start both the Node.js Express backend server (typically on `http://localhost:5011` as configured in `vite.config.ts`) and the Vite development server for the React application.
+```bash
+git clone https://github.com/fracabu/artis-romae.git
+cd artis-romae
+npm install
+npm run dev:full
+```
 
-    ```bash
-    npm run dev:full
-    ```
-    Once started, the frontend application will typically be accessible in your web browser at `http://localhost:5173`.
+Frontend: `http://localhost:5173` | Backend: `http://localhost:5011`
 
-4.  **Build for Production**:
-    To compile and optimize the frontend application for production deployment, use the build command:
+---
 
-    ```bash
-    npm run build
-    ```
-    This will generate static files in the `dist/` directory, which can then be served by any static file server or integrated with the backend for serving.
+<a name="italiano"></a>
+## :it: Italiano
+
+### Panoramica
+
+Un'applicazione web completa che offre esperienze artistiche curate e tour culturali premium a Roma. Scopri Musei Vaticani, Colosseo, Galleria Borghese con alloggi di lusso.
+
+### Funzionalita
+
+- **Tour Arte Curati** - Esperienze guidate nei siti culturali romani
+- **Mappe Interattive** - Mappatura location con Leaflet
+- **Focus Travel Premium** - Alloggi di lusso ed esperienze elevate
+- **SEO Ottimizzato** - Supporto multilingua con hreflang
+- **Full-Stack** - Frontend React + backend Node.js/Express
+
+### Stack Tecnologico
+
+| Layer | Tecnologia |
+|-------|------------|
+| Frontend | React, TypeScript, Vite, Tailwind CSS |
+| Mappe | Leaflet, React-Leaflet |
+| Backend | Node.js, Express.js |
+
+### Avvio Rapido
+
+```bash
+git clone https://github.com/fracabu/artis-romae.git
+cd artis-romae
+npm install
+npm run dev:full
+```
+
+Frontend: `http://localhost:5173` | Backend: `http://localhost:5011`
+
+---
+
+## License
+
+MIT
+
+---
+
+<p align="center">
+  <a href="https://github.com/fracabu">
+    <img src="https://img.shields.io/badge/Made_by-fracabu-8B5CF6?style=flat-square" alt="Made by fracabu" />
+  </a>
+</p>
